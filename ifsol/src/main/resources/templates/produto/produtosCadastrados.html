@@ -1,0 +1,45 @@
+<!DOCTYPE>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>IF-Sol</title>
+</head>
+
+<body>
+	<div class="container">
+		<table>
+			<thead>
+				<tr>
+					<th>#Código</th>
+					<th>Produto</th>
+					<th>Quantidade</th>
+					<th>Preço</th>
+					<th>Descricao</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="produto : ${produtos}">
+					<td><span th:text="${produto.codigo}"></span></td>
+					<td><a th:href="${(#mvc.url('PC#editarProduto').arg(0, produto.codigo)).build()}"><span th:text="${produto.nome}"></span></a></td>
+					<td><span th:text="${produto.quantidade}"></span></td>
+					<td><span th:text="${produto.preco}"></span></td>
+					<td><span th:text="${produto.descricao}"></span></td>
+					<td><a class="waves-effect waves-light btn" th:href="${(#mvc.url('PC#excluirProduto').arg(0, produto.codigo)).build()}"><i
+			class="material-icons left">delete</i></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
