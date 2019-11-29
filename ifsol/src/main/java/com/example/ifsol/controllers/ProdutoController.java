@@ -36,6 +36,14 @@ public class ProdutoController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "detalhesProduto/{codigo}")
+	public ModelAndView detalhesProduto(@PathVariable("codigo") int codigo) {
+		ModelAndView mv = new ModelAndView("produto/detalhesProduto");
+		Produto prod = pr.findByCodigo(codigo);
+		mv.addObject("produto", prod);
+		return mv;
+	}
+	
 	@RequestMapping("/excluirProduto")
 	public String excluirProduto(int codigo) {
 		Produto produto = pr.findByCodigo(codigo);
