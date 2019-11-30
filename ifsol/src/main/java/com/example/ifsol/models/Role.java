@@ -1,5 +1,6 @@
 package com.example.ifsol.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -15,7 +16,7 @@ public class Role implements GrantedAuthority{
 	private String nome;
 
 	@ManyToMany(mappedBy = "roles")
-    private List<Usuario> usuarios;
+    private List<Usuario> usuarios = new ArrayList<Usuario>();
 	
 	public String getNome() {
 		return nome;
@@ -29,8 +30,8 @@ public class Role implements GrantedAuthority{
 		return usuarios;
 	}
 
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
+	public void setUsuarios(Usuario usuario) {
+		usuarios.add(usuario);
 	}
 
 	@Override

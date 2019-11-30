@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Id; 
 
 @Entity
 public class Produto implements Serializable{
@@ -19,7 +19,14 @@ public class Produto implements Serializable{
 	private String descricao;
 	private int quantidade;
 	private double preco;
+	private String produtor;
 	
+	public String getProdutor() {
+		return produtor;
+	}
+	public void setProdutor(String produtor) {
+		this.produtor = produtor;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -49,6 +56,5 @@ public class Produto implements Serializable{
 	}
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
-	}
-	
+	}	
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>IF-Sol</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h1>IF-Sol - Encomendar produtos</h1>
+			<form class="col s12" method="post">
+				<p>Produtos da encomenda</p>
+				<div th:each="produto : ${prodts}">
+					<div class="row">
+						<div class="input-field col s6">
+							<input id="produto" name="produto" th:value="${produto.nome}" type="text" readonly>
+							<label for="produto">Produto</label>
+						</div>
+						<div class="input-field col s6">
+							<input placeholder="Informe a quantidade" id="quantidade" name="quantidade" type="text">
+							<label for="quantidade">Quantidade</label>
+						</div>
+					</div>
+				</div>
+				<button class="waves-effect waves-light btn" type="submit">
+					<i class="material-icons left">save</i>Encomendar
+				</button>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>
