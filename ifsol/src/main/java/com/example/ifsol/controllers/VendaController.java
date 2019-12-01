@@ -94,4 +94,17 @@ public class VendaController {
 		return "redirect:/registrarVenda";
 	}
 	
+	@RequestMapping(value="/vendas", method=RequestMethod.GET)
+	public ModelAndView listaVendas() {
+		ModelAndView mv = new ModelAndView("venda/listaVendas");
+		
+		Iterable<Venda> vendas = vr.findAll();
+		
+		Iterable<ItemVenda> itens = ivr.findAll();
+		mv.addObject("itens", itens);
+		mv.addObject("vendas", vendas);
+		
+		return mv;
+	}
+	
 }
