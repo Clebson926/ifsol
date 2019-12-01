@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>IF-Sol</title>
+</head>
+
+<body>
+	<div class="container">
+		<form class="col s12" method="post" action="/registrarVenda">
+			<div class="row" th:object="${encomenda}">
+				<h1><span th:text="${encomenda.codigoEncomenda}"></span></h1>
+					<input type="hidden" name="codigoEncomenda" th:value="${encomenda.codigoEncomenda}">
+			</div>
+			<button class="waves-effect waves-light btn" type="submit">
+					<i class="material-icons left">add_shopping_cart</i>Adicionar
+				</button>
+		</form>
+	</div>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

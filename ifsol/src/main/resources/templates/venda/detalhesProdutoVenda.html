@@ -1,0 +1,53 @@
+<!DOCTYPE>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>IF-Sol</title>
+</head>
+
+<body>
+	<div class="container">
+		<form class="col s12" method="post" action="/addItemVenda">
+			<div class="row" th:object="${produto}">
+				<h1>
+					<span th:text="${produto.nome}"></span>
+					<input type="hidden" name="codigo" th:value="${produto.codigo}">
+				</h1>
+
+				<p>
+					<b><span>Descrição:</span></b><br>
+					<span th:text="${produto.descricao}"></span><br>
+					<b><span>Produtor:</span></b><br>
+					<span th:text="${produto.produtor}"></span>
+				</p>
+				
+				<h3>
+					<span>R$</span><b><span th:text="${produto.preco}"></span></b>
+				</h3>
+
+			</div>
+			<div class="row">
+				<div class="input-field col s3">
+					<input placeholder="Informe a quantidade" id="quantidade" name="quantidade"
+						type="text"> <label for="quantidade">Quantidade</label>
+				</div>
+			</div>
+			<button class="waves-effect waves-light btn" type="submit">
+					<i class="material-icons left">add_shopping_cart</i>Adicionar
+				</button>
+		</form>
+	</div>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

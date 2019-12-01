@@ -28,6 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.GET, "/produtos").hasAnyRole("ADMIN, COMPRADOR")
 		.antMatchers(HttpMethod.GET, "/usuarios").hasRole("ADMIN")
 		.antMatchers(HttpMethod.GET, "/registrarEncomenda").hasRole("COMPRADOR")
+		.antMatchers(HttpMethod.GET, "/registrarVenda").hasRole("COMPRADOR")
+		.antMatchers(HttpMethod.GET, "/encomendas").hasRole("PRODUTOR")
 		.anyRequest().authenticated()
 		.and().formLogin().permitAll()
 		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));

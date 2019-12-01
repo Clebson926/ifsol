@@ -19,12 +19,19 @@ public class Encomenda implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int codigoEncomenda;
-	
+
 	@OneToOne
 	private Usuario usuario;
 	
 	@OneToMany
 	List<ItemEncomendaProduto> itens_encomenda = new ArrayList<ItemEncomendaProduto>();
+	
+	public int getCodigoEncomenda() {
+		return codigoEncomenda;
+	}
+	public void setCodigoEncomenda(int codigoEncomenda) {
+		this.codigoEncomenda = codigoEncomenda;
+	}
 	
 	public List<ItemEncomendaProduto> getItens_produtos() {
 		return itens_encomenda;

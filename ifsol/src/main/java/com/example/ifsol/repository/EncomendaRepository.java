@@ -6,4 +6,6 @@ import com.example.ifsol.models.Encomenda;
 
 public interface EncomendaRepository extends CrudRepository<Encomenda, String> {
 
+	Encomenda findByCodigoEncomenda(int codigo);
+	
 }

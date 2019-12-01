@@ -1,11 +1,11 @@
 package com.example.ifsol.controllers;
 
 import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -87,6 +87,27 @@ public class EncomendaController {
         }
         produtos.clear();
 		return "redirect:/registrarEncomenda";
+	}
+	
+	@RequestMapping(value="/encomendas", method=RequestMethod.GET)
+	public ModelAndView listaEncomendas() {
+		ModelAndView mv = new ModelAndView("encomenda/listaEncomendas");
+		
+		Iterable<Encomenda> encomendas = er.findAll();
+		
+		Iterable<ItemEncomendaProduto> itens = iepr.findAll();
+		mv.addObject("itens", itens);
+		mv.addObject("encomendas", encomendas);
+		
+		return mv;
+	}
+	
+	@RequestMapping(value = "detalhesEncomenda/{codigoEncomenda}")
+	public ModelAndView detalhesEncomenda(@PathVariable("codigoEncomenda") int codigoEncomenda) {
+		ModelAndView mv = new ModelAndView("encomenda/detalhesEncomenda");
+		Encomenda encomenda = er.findByCodigoEncomenda(codigoEncomenda);
+		mv.addObject("encomenda", encomenda);
+		return mv;
 	}
 	
 }

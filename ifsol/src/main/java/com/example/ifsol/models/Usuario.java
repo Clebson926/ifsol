@@ -6,8 +6,6 @@ import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -22,8 +20,7 @@ public class Usuario implements UserDetails, Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	
 	private String email;
 	private String nome;
 	private String senha;
@@ -38,13 +35,6 @@ public class Usuario implements UserDetails, Serializable{
 	        inverseJoinColumns = @JoinColumn(
 	          name = "role_id", referencedColumnName = "nome")) 
     private List<Role> roles = new ArrayList<Role>();
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	
 	public List<Role> getRoles() {
 		return roles;

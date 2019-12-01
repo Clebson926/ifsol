@@ -1,0 +1,60 @@
+<!DOCTYPE>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>IF-Sol</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Relatório de encomendas</h1>
+		<table class="striped highlight">
+			<thead>
+				<tr>
+					<th>#Código da encomenda</th>
+					<th>Comprador</th>
+					<th>Produtos</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="encomenda : ${encomendas}">
+				<td><a th:href="${(#mvc.url('EC#detalhesEncomenda').arg(0, encomenda.codigoEncomenda)).build()}"><span th:text="${encomenda.codigoEncomenda}"></span></a></td>
+					<td th:text="${encomenda.usuario.nome}"></td>
+					
+					<td>
+						<table>
+							<thead>
+								<tr>
+									<th>Produto</th>
+									<th>Quantidade</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="item : ${itens}"
+									th:if="${item.encomenda.codigoEncomenda == encomenda.codigoEncomenda}">
+									<td><span th:text="${item.produto.nome}"></span></td>
+									<td><span th:text="${item.quantidade}"></span></td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>
