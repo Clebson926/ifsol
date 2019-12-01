@@ -14,33 +14,47 @@
 </head>
 <body>
 	<div class="container">
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">IF-Sol</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/cadastrarUsuario">Cadastrar usuários</a></li>
+					<li><a href="/usuarios">Usuários</a></li>
+					<li><a href="/produtos">Produtos</a></li>
+				</ul>
+			</div>
+		</nav>
 		<div class="row">
 			<h1>IF-Sol - Alteração de produtos</h1>
-			<form class="col s12" action="#" th:action="@{/atualizar/{codigo}(codigo=${produto.codigo})}" th:object="${produto}" method=post>
+			<form class="col s12" action="#"
+				th:action="@{/atualizar/{codigo}(codigo=${produto.codigo})}"
+				th:object="${produto}" method=post>
 				<div class="row">
 					<div class="input-field col s2">
-						<input type="text"
-							class="validate" name="codigo" th:value="${produto.codigo}" readonly> <label for="codigo">Código</label>
+						<input type="text" class="validate" name="codigo"
+							th:value="${produto.codigo}" readonly> <label
+							for="codigo">Código</label>
 					</div>
 					<div class="input-field col s4">
-						<input id="nome" type="text"
-							class="validate" name="nome" th:value="${produto.nome}"> <label for="nome">Nome
+						<input id="nome" type="text" class="validate" name="nome"
+							th:value="${produto.nome}"> <label for="nome">Nome
 							do produto</label>
 					</div>
 					<div class="input-field col s6">
-						<textarea class="materialize-textarea" name="descricao" th:text="${produto.descricao}"></textarea>
+						<textarea class="materialize-textarea" name="descricao"
+							th:text="${produto.descricao}"></textarea>
 						<label for="descricao">Descrição</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s4">
-						<input id="quantidade"
-							type="text" class="validate" name="quantidade" th:value="${produto.quantidade}"> <label
+						<input id="quantidade" type="text" class="validate"
+							name="quantidade" th:value="${produto.quantidade}"> <label
 							for="quantidade">Quantidade</label>
 					</div>
 					<div class="input-field col s4">
-						<input id="preco" type="text"
-							class="validate" name="preco" th:value="${produto.preco}"> <label for="preco">Preço</label>
+						<input id="preco" type="text" class="validate" name="preco"
+							th:value="${produto.preco}"> <label for="preco">Preço</label>
 					</div>
 				</div>
 				<button class="waves-effect waves-light btn" type="submit">

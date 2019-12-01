@@ -17,20 +17,26 @@
 
 <body>
 	<div class="container">
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo">IF-Sol</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="/registrarEncomenda">Encomendar produtos</a></li>
+				<li><a href="/produtos">Produtos</a></li>
+			</ul>
+		</div>
 		<form class="col s12" method="post" action="/addItemEncomenda">
 			<div class="row" th:object="${produto}">
 				<h1>
-					<span th:text="${produto.nome}"></span>
-					<input type="hidden" name="codigo" th:value="${produto.codigo}">
+					<span th:text="${produto.nome}"></span> <input type="hidden"
+						name="codigo" th:value="${produto.codigo}">
 				</h1>
 
 				<p>
-					<b><span>Descrição:</span></b><br>
-					<span th:text="${produto.descricao}"></span><br>
-					<b><span>Produtor:</span></b><br>
+					<b><span>Descrição:</span></b><br> <span
+						th:text="${produto.descricao}"></span><br> <b><span>Produtor:</span></b><br>
 					<span th:text="${produto.produtor}"></span>
 				</p>
-				
+
 				<h3>
 					<span>R$</span><b><span th:text="${produto.preco}"></span></b>
 				</h3>
@@ -38,13 +44,13 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s3">
-					<input placeholder="Informe a quantidade" id="quantidade" name="quantidade"
-						type="text"> <label for="quantidade">Quantidade</label>
+					<input placeholder="Informe a quantidade" id="quantidade"
+						name="quantidade" type="text"> <label for="quantidade">Quantidade</label>
 				</div>
 			</div>
 			<button class="waves-effect waves-light btn" type="submit">
-					<i class="material-icons left">add_shopping_cart</i>Adicionar
-				</button>
+				<i class="material-icons left">add_shopping_cart</i>Adicionar
+			</button>
 		</form>
 	</div>
 	<script

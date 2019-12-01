@@ -14,14 +14,25 @@
 </head>
 <body>
 	<div class="container">
+
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">IF-Sol</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/cadastrarProduto">Cadastrar produto</a></li>
+					<li><a href="/encomendas">Encomendas</a></li>
+				</ul>
+			</div>
+		</nav>
+		
 		<div class="row">
-		<h1>IF-Sol - Cadastro de produtos</h1>
+			<h1>IF-Sol - Cadastro de produtos</h1>
 			<form class="col s12" method="post">
 				<div class="row">
 					<div class="input-field col s6">
 						<input placeholder="Produto" id="nome" type="text"
-							class="validate" name="nome"> <label for="nome">Nome do
-							produto</label>
+							class="validate" name="nome"> <label for="nome">Nome
+							do produto</label>
 					</div>
 					<div class="input-field col s6">
 						<textarea class="materialize-textarea" name="descricao"></textarea>
@@ -30,8 +41,9 @@
 				</div>
 				<div class="row">
 					<div class="input-field col s4">
-						<input placeholder="Informe a quantidade" id="quantidade" type="text"
-							class="validate" name="quantidade"> <label for="quantidade">Quantidade</label>
+						<input placeholder="Informe a quantidade" id="quantidade"
+							type="text" class="validate" name="quantidade"> <label
+							for="quantidade">Quantidade</label>
 					</div>
 					<div class="input-field col s4">
 						<input placeholder="Informe o preço" id="preco" type="text"
@@ -44,7 +56,9 @@
 							class="validate" name="produtor"> <label for="produtor">Produtor</label>
 					</div>
 				</div>
-				<button class="waves-effect waves-light btn" type="submit"><i class="material-icons left">save</i>Cadastrar</button>
+				<button class="waves-effect waves-light btn" type="submit">
+					<i class="material-icons left">save</i>Cadastrar
+				</button>
 			</form>
 		</div>
 	</div>

@@ -18,6 +18,17 @@
 
 <body>
 	<div class="container">
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">IF-Sol</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/cadastrarUsuario">Cadastrar usuários</a></li>
+					<li><a href="/usuarios">Usuários</a></li>
+					<li><a href="/produtos">Produtos</a></li>
+					<li><a href="/registrarEncomenda">Registrar Encomenda</a></li>
+				</ul>
+			</div>
+		</nav>
 		<table>
 			<thead>
 				<tr>
@@ -31,12 +42,15 @@
 			<tbody>
 				<tr th:each="produto : ${produtos}">
 					<td><span th:text="${produto.codigo}"></span></td>
-					<td><a th:href="${(#mvc.url('PC#editarProduto').arg(0, produto.codigo)).build()}"><span th:text="${produto.nome}"></span></a></td>
+					<td><a
+						th:href="${(#mvc.url('PC#editarProduto').arg(0, produto.codigo)).build()}"><span
+							th:text="${produto.nome}"></span></a></td>
 					<td><span th:text="${produto.quantidade}"></span></td>
 					<td><span th:text="${produto.preco}"></span></td>
 					<td><span th:text="${produto.descricao}"></span></td>
-					<td><a class="waves-effect waves-light btn" th:href="${(#mvc.url('PC#excluirProduto').arg(0, produto.codigo)).build()}"><i
-			class="material-icons left">delete</i></a></td>
+					<td><a class="waves-effect waves-light btn"
+						th:href="${(#mvc.url('PC#excluirProduto').arg(0, produto.codigo)).build()}"><i
+							class="material-icons left">delete</i></a></td>
 				</tr>
 			</tbody>
 		</table>

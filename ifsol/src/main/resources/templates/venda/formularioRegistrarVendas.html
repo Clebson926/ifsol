@@ -14,18 +14,31 @@
 </head>
 <body>
 	<div class="container">
-			<h1>IF-Sol - Registrar Vendas</h1>
-			<a href="/carrinhoVenda">Carrinho</a>
-			<form class="col s12" method="post" th:action="@{/detalhesProdutoVenda/{codigo}(codigo=${produto.codigo})}" th:each="produto : ${produtos}">
-				<div>
-					<h3><span th:text="${produto.nome}"></span></h3>
-					<h4 th:text="${produto.preco}"></h4>
-					<button class="waves-effect waves-light btn" type="submit">
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">IF-Sol</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/cadastrarProduto">Cadastrar produto</a></li>
+					<li><a href="/encomendas">Encomendas</a></li>
+				</ul>
+			</div>
+		</nav>
+		<h1>IF-Sol - Registrar Vendas</h1>
+		<a href="/carrinhoVenda">Carrinho</a>
+		<form class="col s12" method="post"
+			th:action="@{/detalhesProdutoVenda/{codigo}(codigo=${produto.codigo})}"
+			th:each="produto : ${produtos}">
+			<div>
+				<h3>
+					<span th:text="${produto.nome}"></span>
+				</h3>
+				<h4 th:text="${produto.preco}"></h4>
+				<button class="waves-effect waves-light btn" type="submit">
 					<i class="material-icons left">add_shopping_cart</i>Encomendar
 				</button>
-				</div>
-			</form>
-		
+			</div>
+		</form>
+
 	</div>
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>

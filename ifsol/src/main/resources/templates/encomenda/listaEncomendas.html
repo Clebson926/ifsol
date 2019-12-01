@@ -17,6 +17,17 @@
 </head>
 
 <body>
+
+	<nav>
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo">IF-Sol</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="/cadastrarProduto">Cadastrar produto</a></li>
+				<li><a href="/encomendas">Encomendas</a></li>
+			</ul>
+		</div>
+	</nav>
+
 	<div class="container">
 		<h1>Relatório de encomendas</h1>
 		<table class="striped highlight">
@@ -29,9 +40,9 @@
 			</thead>
 			<tbody>
 				<tr th:each="encomenda : ${encomendas}">
-				<td><a th:href="${(#mvc.url('EC#detalhesEncomenda').arg(0, encomenda.codigoEncomenda)).build()}"><span th:text="${encomenda.codigoEncomenda}"></span></a></td>
+					<td th:text="${encomenda.codigoEncomenda}"></td>
 					<td th:text="${encomenda.usuario.nome}"></td>
-					
+
 					<td>
 						<table>
 							<thead>

@@ -17,6 +17,15 @@
 
 <body>
 	<div class="container">
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">IF-Sol</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/cadastrarProduto">Cadastrar produto</a></li>
+					<li><a href="/encomendas">Encomendas</a></li>
+				</ul>
+			</div>
+		</nav>
 		<form class="col s12" method="post" action="/finalizarVenda">
 			<table>
 				<thead>
@@ -33,8 +42,8 @@
 				</tbody>
 			</table>
 			<button class="waves-effect waves-light btn" type="submit">
-					<i class="material-icons left">done</i>Finalizar Encomenda
-				</button>
+				<i class="material-icons left">done</i>Finalizar Encomenda
+			</button>
 		</form>
 	</div>
 	<script
