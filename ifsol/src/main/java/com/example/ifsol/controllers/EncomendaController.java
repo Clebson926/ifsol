@@ -47,12 +47,7 @@ public class EncomendaController {
 	
 	@RequestMapping(value="/addItemEncomenda", method=RequestMethod.POST)
 	public String addItemEncomenda(@RequestParam("quantidade") String quantidade, @RequestParam("codigo") String codigo) {
-		//ModelAndView mv = new ModelAndView("encomenda/formularioEncomendarProdutos");
-		//Iterable<Produto> produtos = pr.findAll();
-		//mv.addObject("produtos", produtos);
-	
 		Produto produto = pr.findByCodigo(Integer.parseInt(codigo));
-		
 		ItemEncomendaProduto item = new ItemEncomendaProduto();
 		item.setProduto(produto);
 		item.setQuantidade(Integer.parseInt(quantidade));
